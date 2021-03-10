@@ -4,9 +4,9 @@
     <title>使用Hexo搭建博客踩坑之旅</title>
     <url>/2021/03/09/%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E4%B9%8B%E6%97%85/</url>
     <content><![CDATA[<p>很久之前就告诉自己一定要做一个自己的博客，在此之前做了一些调研，选择了Hexo+Github pages的方式，简单便捷，界面清新。<br><strong>安装的版本：</strong><br><strong>Hexo:5.4.0;</strong><br><strong>node:v15.11.0;</strong><br><strong>next:v7.8.0</strong></p>
-<h1 id="1-一些必备的环境"><a href="#1-一些必备的环境" class="headerlink" title="1.一些必备的环境"></a>1.一些必备的环境</h1><span id="more"></span>
-<h2 id="1-1-Git"><a href="#1-1-Git" class="headerlink" title="1.1 Git"></a>1.1 Git</h2><p>首先得有一个Github的账号，并在linux系统上装了Git。我们可以新建一个仓库，取名为username.github.io（username为你的Github账户名），作为博客的存储仓库，注意需为public仓库。</p>
-<h2 id="1-2安装Node-js"><a href="#1-2安装Node-js" class="headerlink" title="1.2安装Node.js"></a>1.2安装Node.js</h2><p>Hexo是基于node.js的静态博客，因此需要安装node.js。看教程发现也有很多坑，选了正确的姿势之一：</p>
+<h1 id="一些必备的环境"><a href="#一些必备的环境" class="headerlink" title="一些必备的环境"></a>一些必备的环境</h1><span id="more"></span>
+<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><p>首先得有一个Github的账号，并在linux系统上装了Git。我们可以新建一个仓库，取名为username.github.io（username为你的Github账户名），作为博客的存储仓库，注意需为public仓库。</p>
+<h2 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h2><p>Hexo是基于node.js的静态博客，因此需要安装node.js。看教程发现也有很多坑，选了正确的姿势之一：</p>
 <p>NVM是Node Version Manager,是Node的版本管理工具。<br>参考<a href="https://github.com/nvm-sh/nvm">https://github.com/nvm-sh/nvm</a>，curl和wget的方式均可安装：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">curl -o- https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;nvm-sh&#x2F;nvm&#x2F;v0.37.2&#x2F;install.sh | bash</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget -qO- https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;nvm-sh&#x2F;nvm&#x2F;v0.37.2&#x2F;install.sh | bash</span><br></pre></td></tr></table></figure>
@@ -15,21 +15,21 @@
 <p>安装好后可以验证是否成功：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">node --version</span><br><span class="line">npm --version</span><br></pre></td></tr></table></figure>
 
-<h1 id="2-安装Hexo，部署配置主题-amp-托管到Github-Pages"><a href="#2-安装Hexo，部署配置主题-amp-托管到Github-Pages" class="headerlink" title="2.安装Hexo，部署配置主题&amp;托管到Github Pages"></a>2.安装Hexo，部署配置主题&amp;托管到Github Pages</h1><h2 id="2-1-安装Hexo"><a href="#2-1-安装Hexo" class="headerlink" title="2.1 安装Hexo"></a>2.1 安装Hexo</h2><p>新建一个放博客站点的路径，然后安装Hexo：</p>
+<h1 id="安装Hexo，部署配置主题-amp-托管到Github-Pages"><a href="#安装Hexo，部署配置主题-amp-托管到Github-Pages" class="headerlink" title="安装Hexo，部署配置主题&amp;托管到Github Pages"></a>安装Hexo，部署配置主题&amp;托管到Github Pages</h1><h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>新建一个放博客站点的路径，然后安装Hexo：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 <p>接下来就可以初始化并创建博客了。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo init blog #初始化博客站点</span><br><span class="line">cd blog</span><br><span class="line">npm install #安装依赖</span><br><span class="line"></span><br><span class="line">hexo g(generate)  #生成</span><br><span class="line">hexo s(server) #本地启动</span><br><span class="line">hexo s -p 8000 -o #自定义端口并自动打开浏览器访问localhost:8000</span><br><span class="line">hexo clean #清除缓存</span><br><span class="line">hexo d(deploy) #部署</span><br><span class="line">#组合命令：</span><br><span class="line">hexo d -g</span><br><span class="line">hexo s -g</span><br></pre></td></tr></table></figure>
 <p>本地查看localhost:4000（默认端口），就可以看到博客的雏形了。</p>
-<h2 id="2-2-托管到Github-Pages"><a href="#2-2-托管到Github-Pages" class="headerlink" title="2.2 托管到Github Pages"></a>2.2 托管到Github Pages</h2><p>修改博客项目的根路径配置文件_config.yml，找到deploy部分</p>
+<h2 id="托管到Github-Pages"><a href="#托管到Github-Pages" class="headerlink" title="托管到Github Pages"></a>托管到Github Pages</h2><p>修改博客项目的根路径配置文件_config.yml，找到deploy部分</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;username&#x2F;username.github.io.git #https和ssh都行</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
 <p>安装hexo-deployer-git的部署器插件，通过该插件就能实现一键部署。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save </span><br></pre></td></tr></table></figure>
 <p>接下来就可以通过以上的命令，hexo d -g一键部署到Github Pages上了。浏览器输入username.github.io就可以访问自己的博客主页了。</p>
 <p>如果还想要绑定自己的域名，可以先购买自己的域名，然后我们可以利用阿里云控制台或者DNSPod来做一个域名解析服务。在域名解析平台登录成功后，可以添加或选择自己的域名来配置域名解析。点击“添加记录”按钮，创建一个类型为CNAME的域名解析，CNAME类型的解析代表将一个域名解析到另一个域名。然后在博客项目的source路径下添加一个名为CNAME的文件（全大写），并添加自己购买的域名。然后清理后重新生成部署。</p>
-<h2 id="2-3-配置主题"><a href="#2-3-配置主题" class="headerlink" title="2.3 配置主题"></a>2.3 配置主题</h2><p>默认为landscape，但还可以自己切换主题， 这里选择简洁的Next主题。<br>地址：<a href="https://github.com/theme-next/hexo-theme-next">https://github.com/theme-next/hexo-theme-next</a><br>进入博客站点路径，</p>
+<h2 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h2><p>默认为landscape，但还可以自己切换主题， 这里选择简洁的Next主题。<br>地址：<a href="https://github.com/theme-next/hexo-theme-next">https://github.com/theme-next/hexo-theme-next</a><br>进入博客站点路径，</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd blog</span><br><span class="line">git clone git@github.com:theme-next&#x2F;hexo-theme-next.git themes&#x2F;next</span><br></pre></td></tr></table></figure>
 <p>然后可以切换使用next主题：在站点配置文件_config.yml中找到theme字段，修改值为next</p>
-<h1 id="3-博客美化-amp-添加功能"><a href="#3-博客美化-amp-添加功能" class="headerlink" title="3.博客美化&amp;添加功能"></a>3.博客美化&amp;添加功能</h1><h2 id="1-背景图片"><a href="#1-背景图片" class="headerlink" title="1.背景图片"></a>1.背景图片</h2><h2 id="2-添加评论功能-gitalk"><a href="#2-添加评论功能-gitalk" class="headerlink" title="2.添加评论功能-gitalk"></a>2.添加评论功能-gitalk</h2><h2 id="3-添加阅读字数统计和时长"><a href="#3-添加阅读字数统计和时长" class="headerlink" title="3.添加阅读字数统计和时长"></a>3.添加阅读字数统计和时长</h2><p>这里有一个大坑，就是和next主题版本有关系，我这个版本发现这个主题本身配置文件中并没有hexo-wordcount，而是symbols_count_time，这个需要安装依赖：</p>
+<h1 id="博客美化-amp-添加功能"><a href="#博客美化-amp-添加功能" class="headerlink" title="博客美化&amp;添加功能"></a>博客美化&amp;添加功能</h1><h2 id="背景图片"><a href="#背景图片" class="headerlink" title="背景图片"></a>背景图片</h2><h2 id="添加评论功能-gitalk"><a href="#添加评论功能-gitalk" class="headerlink" title="添加评论功能-gitalk"></a>添加评论功能-gitalk</h2><h2 id="添加阅读字数统计和时长"><a href="#添加阅读字数统计和时长" class="headerlink" title="添加阅读字数统计和时长"></a>添加阅读字数统计和时长</h2><p>这里有一个大坑，就是和next主题版本有关系，我这个版本发现这个主题本身配置文件中并没有hexo-wordcount，而是symbols_count_time，这个需要安装依赖：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-word-counter</span><br></pre></td></tr></table></figure>
 
 
