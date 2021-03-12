@@ -1,17 +1,18 @@
-<!--崩溃欺骗-->
- var OriginTitle = document.title;
- var titleTime;
- document.addEventListener('visibilitychange', function () {
-     if (document.hidden) {
-         $('[rel="icon"]').attr('href', "/images/cheat404.ico");
-         document.title = '╭(°A°`)╮ 页面崩溃啦 ~';
-         clearTimeout(titleTime);
-     }
-     else {
-         $('[rel="icon"]').attr('href', "/images/favicon-32x32.ico");
-         document.title = '(ฅ>ω<*ฅ) 噫又好了~' + OriginTitle;
-         titleTime = setTimeout(function () {
-             document.title = OriginTitle;
-         }, 2000);
-     }
- });
+$(window).load(function () {
+//整合页面欺骗特效 window.onload有冲突
+    var OriginTitile = document.title;
+    var titleTime;
+    document.addEventListener('visibilitychange', function () {
+        if (document.hidden) {
+            $('[rel="icon"]').attr('href', "../source/images/cheat404.ico");
+            document.title = '(つェ⊂) 我藏好了哦~ ';
+            clearTimeout(titleTime);
+        } else {
+            $('[rel="icon"]').attr('href', "../source/images/favicon-32x32.ico");
+            document.title = 'o(^▽^)o 被你发现啦~ ';
+            titleTime = setTimeout(function () {
+                document.title = OriginTitile;
+            }, 2000);
+        }
+    });
+});
