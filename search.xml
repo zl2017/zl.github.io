@@ -50,7 +50,11 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.post-block:not(:first-child) &#123;</span><br><span class="line">  margin-top: 30px; &#x2F;&#x2F;调整文章与文章间的间距，这里默认是120px，太大了</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="3-6-修改文章内链接文本样式"><a href="#3-6-修改文章内链接文本样式" class="headerlink" title="3.6 修改文章内链接文本样式"></a>3.6 修改文章内链接文本样式</h2><p>在 site/source/_data 目录下新建 styles.styl 文件，填入下面内容。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 修改链接样式</span><br><span class="line">.post-body p a&#123;</span><br><span class="line">  color: #0593d3;</span><br><span class="line">  border-bottom: none;</span><br><span class="line">  &amp;:hover &#123;</span><br><span class="line">    color: #ff106c;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">a, span.exturl &#123;</span><br><span class="line">  border-bottom: none;</span><br><span class="line">  &amp;:hover &#123;</span><br><span class="line">    color: #ff106c;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>主题配置文件_config.yml 去除 styles.styl 的注释。<br><code>style: source/_data/styles.styl</code></p>
+<p>主题配置文件_config.yml 去除 styles.styl 的注释。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">style: source&#x2F;_data&#x2F;styles.styl</span><br></pre></td></tr></table></figure>
+<h2 id="3-7-页脚元素居中"><a href="#3-7-页脚元素居中" class="headerlink" title="3.7 页脚元素居中"></a>3.7 页脚元素居中</h2><p>我选用的是Next主题的Mist布局，/themes/next/source/css/_schemes/Mist/下的_layout.styl中这里left改成center</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.footer-inner &#123;</span><br><span class="line">  text-align: center;</span><br></pre></td></tr></table></figure>
+
 <h1 id="4-可以开始你的写作了"><a href="#4-可以开始你的写作了" class="headerlink" title="4. 可以开始你的写作了"></a>4. 可以开始你的写作了</h1><p>Hexo支持markdown语法，可以参考官网<a href="https://hexo.io/zh-cn/docs/writing.html">https://hexo.io/zh-cn/docs/writing.html</a>。首页放置的是所有文章，在写文章的时候自行放置<code>&lt;!-- more --&gt;</code>指令，代表从这里省略了后文，会在此处出现一个阅读全文的链接。</p>
 ]]></content>
       <categories>
