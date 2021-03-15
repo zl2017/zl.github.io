@@ -1211,7 +1211,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #377e2a;
+  background: #ba81ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2603,7 +2603,7 @@ header.post-header {
   display: inline-block;
 }
 body {
-  background: url("https://raw.githubusercontent.com/zl2017/blog-image/main/PicGo/background.jpg");
+  background: url("https://cdn.jsdelivr.net/gh/zl2017/blog-image/PicGo/background.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 50% 50%;
