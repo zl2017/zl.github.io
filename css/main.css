@@ -1211,7 +1211,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #2f5cff;
+  background: #fffbcb;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2649,4 +2649,12 @@ span.exturl {
 a:hover,
 span.exturl:hover {
   color: #ff106c;
+}
+.posts-expand .post-tags a {
+  display: inline-block;
+  font-size: 0.8em;
+  padding: 0px 10px;
+  border-radius: 8px;
+  color: #555;
+  border: 0px;
 }
